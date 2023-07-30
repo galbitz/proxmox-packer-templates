@@ -7,9 +7,10 @@ auto eth0
 iface eth0 inet dhcp
 "
 DNSOPTS="-n 192.168.1.1"
-TIMEZONEOPTS="-z UTC"
+TIMEZONEOPTS="-z America/Toronto"
 PROXYOPTS="none"
 APKREPOSOPTS="-1"
 SSHDOPTS="-c openssh"
 NTPOPTS="-c openntpd"
 DISKOPTS="-L -m sys /dev/sda"
+USEROPTS=none

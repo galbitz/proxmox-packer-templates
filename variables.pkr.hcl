@@ -1,7 +1,7 @@
 variable "vmid" {
   description = "The ID used to reference the virtual machine. If not given, the next free ID on the node will be used."
   type        = number
-  default     = 0
+  default     = 9001
 }
 
 variable "name" {
@@ -18,6 +18,7 @@ variable "description" {
 variable "node" {
   description = "The name of the Proxmox Node on which to place the VM."
   type        = string
+  default = "bee"
 }
 
 variable "pool" {
@@ -53,19 +54,20 @@ variable "memory" {
 variable "disk_storage_pool" {
   description = "The name of the storage pool on which to store the disks."
   type        = string
-  default     = "local"
+  default     = "local-lvm"
 }
 
 variable "disk_size" {
   description = "The size of the created disk."
   type        = string
-  default     = "5G"
+  default     = "1G"
 }
 
 variable "disk_format" {
   description = "The drive's backing file's data format."
   type        = string
-  default     = "qcow2"
+  # default     = "qcow2"
+  default = "raw"
 }
 
 variable "disk_type" {
@@ -137,7 +139,7 @@ variable "scsi_controller" {
 variable "start_at_boot" {
   description = "Whether to have the VM startup after the PVE node starts."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "qemu_agent" {
@@ -226,7 +228,7 @@ variable "cloud_init" {
 variable "cloud_init_storage_pool" {
   description = "Name of the Proxmox storage pool to store the Cloud-Init CDROM on."
   type        = string
-  default     = "local"
+  default     = "local-lvm"
 }
 
 variable "additional_iso_files" {
